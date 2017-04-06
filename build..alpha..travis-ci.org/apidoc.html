@@ -1,0 +1,961 @@
+<div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a
+
+        href="http://github.com/olado/doT"
+
+    >dot (v1.1.1)</a>
+</h1>
+<h4>Concise and fast javascript templating compatible with nodejs and other javascript environments</h4>
+<div class="apidocSectionDiv"><a
+    href="#apidoc.tableOfContents"
+    id="apidoc.tableOfContents"
+><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.dot">module dot</a><ol>
+
+        <li>
+
+            <span class="apidocSignatureSpan">boolean <span class="apidocSignatureSpan">dot.</span>log</span>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.dot.compile">
+            function <span class="apidocSignatureSpan">dot.</span>compile
+            <span class="apidocSignatureSpan">(tmpl, def)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.dot.encodeHTMLSource">
+            function <span class="apidocSignatureSpan">dot.</span>encodeHTMLSource
+            <span class="apidocSignatureSpan">(doNotSkipEncoded)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.dot.process">
+            function <span class="apidocSignatureSpan">dot.</span>process
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.dot.template">
+            function <span class="apidocSignatureSpan">dot.</span>template
+            <span class="apidocSignatureSpan">(tmpl, c, def)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">dot.</span>doU</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">dot.</span>jslitmus</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">dot.</span>templateSettings</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">dot.</span>version</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.dot.doU">module dot.doU</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.dot.doU.template">
+            function <span class="apidocSignatureSpan">dot.doU.</span>template
+            <span class="apidocSignatureSpan">(tmpl, conf)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">dot.doU.</span>templateSettings</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">dot.doU.</span>version</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.dot.jslitmus">module dot.jslitmus</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.dot.jslitmus.Test">
+            function <span class="apidocSignatureSpan">dot.jslitmus.</span>Test
+            <span class="apidocSignatureSpan">(name, f)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.dot.jslitmus.clearAll">
+            function <span class="apidocSignatureSpan">dot.jslitmus.</span>clearAll
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.dot.jslitmus.emit">
+            function <span class="apidocSignatureSpan">dot.jslitmus.</span>emit
+            <span class="apidocSignatureSpan">(e)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.dot.jslitmus.getGoogleChart">
+            function <span class="apidocSignatureSpan">dot.jslitmus.</span>getGoogleChart
+            <span class="apidocSignatureSpan">(normalize)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.dot.jslitmus.on">
+            function <span class="apidocSignatureSpan">dot.jslitmus.</span>on
+            <span class="apidocSignatureSpan">(e, f)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.dot.jslitmus.removeAllListeners">
+            function <span class="apidocSignatureSpan">dot.jslitmus.</span>removeAllListeners
+            <span class="apidocSignatureSpan">(e)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.dot.jslitmus.removeListener">
+            function <span class="apidocSignatureSpan">dot.jslitmus.</span>removeListener
+            <span class="apidocSignatureSpan">(e, f)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.dot.jslitmus.runAll">
+            function <span class="apidocSignatureSpan">dot.jslitmus.</span>runAll
+            <span class="apidocSignatureSpan">(e)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.dot.jslitmus.test">
+            function <span class="apidocSignatureSpan">dot.jslitmus.</span>test
+            <span class="apidocSignatureSpan">(name, f)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">dot.jslitmus.</span>platform</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">dot.jslitmus.</span>unsupported</span>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.dot" id="apidoc.module.dot">module dot</a></h1>
+
+
+
+
+    <h2>
+        <a href="#apidoc.element.dot.compile" id="apidoc.element.dot.compile">
+        function <span class="apidocSignatureSpan">dot.</span>compile
+        <span class="apidocSignatureSpan">(tmpl, def)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">compile = function (tmpl, def) {
+		return doT.template(tmpl, null, def);
+	}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.dot.encodeHTMLSource" id="apidoc.element.dot.encodeHTMLSource">
+        function <span class="apidocSignatureSpan">dot.</span>encodeHTMLSource
+        <span class="apidocSignatureSpan">(doNotSkipEncoded)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">encodeHTMLSource = function (doNotSkipEncoded) {
+		var encodeHTMLRules = { &#x22;&#x26;&#x22;: &#x22;&#x26;#38;&#x22;, &#x22;&#x3c;&#x22;: &#x22;&#x26;#60;&#x22;, &#x22;&#x3e;&#x22;: &#x22;&#x26;#62;&#x22;, &#x27;&#x22;&#x27;: &#x22;&#x26;#34;&#x22;, &#x22;&#x27;&#x22;: &#x22;&#x26;#39;&#x22;, &#x22;/&#x22;: &#x22;&#x26;#47;&#x22; },
+			matchHTML = doNotSkipEncoded ? /[&#x26;&#x3c;&#x3e;&#x22;&#x27;\/]/g : /&#x26;(?!#?\w+;)|&#x3c;|&#x3e;|&#x22;|&#x27;|\//g;
+		return function(code) {
+			return code ? code.toString().replace(matchHTML, function(m) {return encodeHTMLRules[m] || m;}) : &#x22;&#x22;;
+		};
+	}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.dot.process" id="apidoc.element.dot.process">
+        function <span class="apidocSignatureSpan">dot.</span>process
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">process = function (options) {
+	//path, destination, global, rendermodule, templateSettings
+	return new InstallDots(options).compileAll();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+		&#x3c;div&#x3e;{{=param.foo}}&#x3c;/div&#x3e;
+	#}}
+
+	{{#def.macro:myvariable}}
+
+####Node module now supports auto-compilation of dot templates from specified path
+
+	var dots = require(&#x22;dot&#x22;).<span class="apidocCodeKeywordSpan">process</span>({ path: &#x22;./views&#x22;});
+
+This will compile .def, .dot, .jst files found under the specified path.
+Details
+* It ignores sub-directories.
+* Template files can have multiple extensions at the same time.
+* Files with .def extension can be included in other files via {{#def.name}}
+* Files with .dot extension are compiled into functions with the same name and
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.dot.template" id="apidoc.element.dot.template">
+        function <span class="apidocSignatureSpan">dot.</span>template
+        <span class="apidocSignatureSpan">(tmpl, c, def)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">template = function (tmpl, c, def) {
+		c = c || doT.templateSettings;
+		var cse = c.append ? startend.append : startend.split, needhtmlencode, sid = 0, indv,
+			str  = (c.use || c.define) ? resolveDefs(c, tmpl, def || {}) : tmpl;
+
+		str = (&#x22;var out=&#x27;&#x22; + (c.strip ? str.replace(/(^|\r|\n)\t* +| +\t*(\r|\n|$)/g,&#x22; &#x22;)
+					.replace(/\r|\n|\t|\/\*[\s\S]*?\*\//g,&#x22;&#x22;): str)
+			.replace(/&#x27;|\\/g, &#x22;\\$&#x26;&#x22;)
+			.replace(c.interpolate || skip, function(m, code) {
+				return cse.start + unescape(code) + cse.end;
+			})
+			.replace(c.encode || skip, function(m, code) {
+				needhtmlencode = true;
+				return cse.startencode + unescape(code) + cse.end;
+			})
+			.replace(c.conditional || skip, function(m, elsecase, code) {
+				return elsecase ?
+					(code ? &#x22;&#x27;;}else if(&#x22; + unescape(code) + &#x22;){out+=&#x27;&#x22; : &#x22;&#x27;;}else{out+=&#x27;&#x22;) :
+					(code ? &#x22;&#x27;;if(&#x22; + unescape(code) + &#x22;){out+=&#x27;&#x22; : &#x22;&#x27;;}out+=&#x27;&#x22;);
+			})
+			.replace(c.iterate || skip, function(m, iterate, vname, iname) {
+				if (!iterate) return &#x22;&#x27;;} } out+=&#x27;&#x22;;
+				sid+=1; indv=iname || &#x22;i&#x22;+sid; iterate=unescape(iterate);
+				return &#x22;&#x27;;var arr&#x22;+sid+&#x22;=&#x22;+iterate+&#x22;;if(arr&#x22;+sid+&#x22;){var &#x22;+vname+&#x22;,&#x22;+indv+&#x22;=-1,l&#x22;+sid+&#x22;=arr&#x22;+sid+&#x22;.length-1;while(&#x22;+indv+&#x22;&#x3c;l&#x22;+
+sid+&#x22;){&#x22;
+					+vname+&#x22;=arr&#x22;+sid+&#x22;[&#x22;+indv+&#x22;+=1];out+=&#x27;&#x22;;
+			})
+			.replace(c.evaluate || skip, function(m, code) {
+				return &#x22;&#x27;;&#x22; + unescape(code) + &#x22;out+=&#x27;&#x22;;
+			})
+			+ &#x22;&#x27;;return out;&#x22;)
+			.replace(/\n/g, &#x22;\\n&#x22;).replace(/\t/g, &#x27;\\t&#x27;).replace(/\r/g, &#x22;\\r&#x22;)
+			.replace(/(\s|;|\}|^|\{)out\+=&#x27;&#x27;;/g, &#x27;$1&#x27;).replace(/\+&#x27;&#x27;/g, &#x22;&#x22;);
+			//.replace(/(\s|;|\}|^|\{)out\+=&#x27;&#x27;\+/g,&#x27;$1out+=&#x27;);
+
+		if (needhtmlencode) {
+			if (!c.selfcontained &#x26;&#x26; _globals &#x26;&#x26; !_globals._encodeHTML) _globals._encodeHTML = doT.encodeHTMLSource(c.doNotSkipEncoded);
+			str = &#x22;var encodeHTML = typeof _encodeHTML !== &#x27;undefined&#x27; ? _encodeHTML : (&#x22;
+				+ doT.encodeHTMLSource.toString() + &#x22;(&#x22; + (c.doNotSkipEncoded || &#x27;&#x27;) + &#x22;));&#x22;
+				+ str;
+		}
+		try {
+			return new Function(c.varname, str);
+		} catch (e) {
+			<span class="apidocCodeCommentSpan">/* istanbul ignore else */
+</span>			if (typeof console !== &#x22;undefined&#x22;) console.log(&#x22;Could not create a template function: &#x22; + str);
+			throw e;
+		}
+	}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+InstallDots.prototype.compileToFile = function(path, template, def) {
+	def = def || {};
+	var modulename = path.substring(path.lastIndexOf(&#x22;/&#x22;)+1, path.lastIndexOf(&#x22;.&#x22;))
+		, defs = copy(this.__includes, copy(def))
+		, settings = this.__settings || doT.templateSettings
+		, compileoptions = copy(settings)
+		, defaultcompiled = doT.<span class="apidocCodeKeywordSpan">template</span>(template, settings, defs)
+		, exports = []
+		, compiled = &#x22;&#x22;
+		, fn;
+
+	for (var property in defs) {
+		if (defs[property] !== def[property] &#x26;&#x26; defs[property] !== this.__includes[property]) {
+			fn = undefined;
+...</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.dot.doU" id="apidoc.module.dot.doU">module dot.doU</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.dot.doU.template" id="apidoc.element.dot.doU.template">
+        function <span class="apidocSignatureSpan">dot.doU.</span>template
+        <span class="apidocSignatureSpan">(tmpl, conf)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">template = function (tmpl, conf) {
+		conf = conf || doU.templateSettings;
+		var str = &#x27;&#x27;, tb = conf.begin, te = conf.end, m, l,
+			arr = tmpl.replace(/\s*&#x3c;!\[CDATA\[\s*|\s*\]\]&#x3e;\s*|[\r\n\t]|(\/\*[\s\S]*?\*\/)/g, &#x27;&#x27;)
+				.split(tb).join(te +&#x27;\x1b&#x27;)
+				.split(te);
+
+		for (m=0,l=arr.length; m &#x3c; l; m++) {
+			str += arr[m].charAt(0) !== &#x27;\x1b&#x27; ?
+			&#x22;out+=&#x27;&#x22; + arr[m].replace(/(\\|[&#x22;&#x27;])/g, &#x27;\\$1&#x27;) + &#x22;&#x27;&#x22; : (arr[m].charAt(1) === &#x27;=&#x27; ?
+			&#x27;;out+=(&#x27; + arr[m].substr(2) + &#x27;);&#x27; : (arr[m].charAt(1) === &#x27;!&#x27; ?
+			&#x27;;out+=(&#x27; + arr[m].substr(2) + &#x22;).toString().replace(/&#x26;(?!\\w+;)/g, &#x27;&#x26;#38;&#x27;).split(&#x27;&#x3c;&#x27;).join(&#x27;&#x26;#60;&#x27;).split(&#x27;&#x3e;&#x27;).join(&#x27;&#x26;#62;&#x27;).
+split(&#x27;&#x22; + &#x27;&#x22;&#x27; + &#x22;&#x27;).join(&#x27;&#x26;#34;&#x27;).split(&#x22; + &#x27;&#x22;&#x27; + &#x22;&#x27;&#x22; + &#x27;&#x22;&#x27; + &#x22;).join(&#x27;&#x26;#39;&#x27;).split(&#x27;/&#x27;).join(&#x27;&#x26;#x2F;&#x27;);&#x22; : &#x27;;&#x27; + arr[m].substr
+(1)));
+		}
+
+		str = (&#x27;var out=&#x22;&#x22;;&#x27;+str+&#x27;;return out;&#x27;)
+			.split(&#x22;out+=&#x27;&#x27;;&#x22;).join(&#x27;&#x27;)
+			.split(&#x27;var out=&#x22;&#x22;;out+=&#x27;).join(&#x27;var out=&#x27;);
+
+		try {
+			return new Function(conf.varname, str);
+		} catch (e) {
+			if (typeof console !== &#x27;undefined&#x27;) console.log(&#x22;Could not create a template function: &#x22; + str);
+			throw e;
+		}
+	}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+InstallDots.prototype.compileToFile = function(path, template, def) {
+	def = def || {};
+	var modulename = path.substring(path.lastIndexOf(&#x22;/&#x22;)+1, path.lastIndexOf(&#x22;.&#x22;))
+		, defs = copy(this.__includes, copy(def))
+		, settings = this.__settings || doT.templateSettings
+		, compileoptions = copy(settings)
+		, defaultcompiled = doT.<span class="apidocCodeKeywordSpan">template</span>(template, settings, defs)
+		, exports = []
+		, compiled = &#x22;&#x22;
+		, fn;
+
+	for (var property in defs) {
+		if (defs[property] !== def[property] &#x26;&#x26; defs[property] !== this.__includes[property]) {
+			fn = undefined;
+...</pre></li>
+    </ul>
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.dot.jslitmus" id="apidoc.module.dot.jslitmus">module dot.jslitmus</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.dot.jslitmus.Test" id="apidoc.element.dot.jslitmus.Test">
+        function <span class="apidocSignatureSpan">dot.jslitmus.</span>Test
+        <span class="apidocSignatureSpan">(name, f)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Test(name, f) {
+  var test = this;
+
+  // Test instances get EventEmitter API
+  EventEmitter.call(test);
+
+  if (!f) throw new Error(&#x27;Undefined test function&#x27;);
+  if (!/function[^\(]*\(([^,\)]*)/.test(f)) {
+    throw new Error(&#x27;&#x22;&#x27; + name + &#x27;&#x22; test: Invalid test function&#x27;);
+  }
+
+  // If the test function takes an argument, we assume it does the iteration
+  // for us
+  var isLoop = !!RegExp.$1;
+
+<span class="apidocCodeCommentSpan">  /**
+   * Reset test state
+   */
+</span>  function reset() {
+    delete test.count;
+    delete test.time;
+    delete test.running;
+    test.emit(&#x27;reset&#x27;, test);
+    return test;
+  }
+
+  function clone() {
+    var test = extend(new Test(name, f), test);
+    return test.reset();
+  }
+
+  /**
+   * Run the test n times, and use the best results
+   */
+  function bestOf(n) {
+    var best = null;
+    while (n--) {
+      var t = clone();
+      t.run(null, true);
+      if (!best || t.period &#x3c; best.period) {
+        best = t;
+      }
+    }
+    extend(test, best);
+  }
+
+  /**
+   * Start running a test.  Default is to run the test asynchronously (via
+   * setTimeout).  Can be made synchronous by passing true for 2nd param
+   */
+  function run(count, synchronous) {
+    count = count || test.INIT_COUNT;
+    test.running = true;
+
+    if (synchronous) {
+      _run(count, synchronous);
+    } else {
+      setTimeout(function() {
+        _run(count);
+      }, 1);
+    }
+    return test;
+  }
+
+  /**
+   * Run, for real
+   */
+  function _run(count, noTimeout) {
+
+    try {
+      var start, f = test.f, now, i = count;
+
+      // Start the timer
+      start = new Date();
+
+      // Run the test code
+      test.count = count;
+      test.time = 0;
+      test.period = 0;
+
+      test.emit(&#x27;start&#x27;, test);
+
+      if (isLoop) {
+        // Test code does it&#x27;s own iteration
+        f(count);
+      } else {
+        // Do the iteration ourselves
+        while (i--) f();
+      }
+
+      // Get time test took (in secs)
+      test.time = Math.max(1,new Date() - start)/1000;
+
+      // Store iteration count and per-operation time taken
+      test.count = count;
+      test.period = test.time/count;
+
+      // Do we need to keep running?
+      test.running = test.time &#x3c; test.MIN_TIME;
+
+      // Publish results
+      test.emit(&#x27;results&#x27;, test);
+
+      // Set up for another run, if needed
+      if (test.running) {
+        // Use an iteration count that will (we hope) get us close to the
+        // MAX_COUNT time.
+        var x = test.MIN_TIME/test.time;
+        var pow = Math.pow(2, Math.max(1, Math.ceil(Math.log(x)/Math.log(2))));
+        count *= pow;
+        if (count &#x3e; test.MAX_COUNT) {
+          throw new Error(&#x27;Max count exceeded.  If this test uses a looping function, make sure the iteration loop is working properly
+.&#x27;);
+        }
+
+        if (noTimeout) {
+          _run(count, noTimeout);
+        } else {
+          run(count);
+        }
+      } else {
+        test.emit(&#x27;complete&#x27;, test);
+      }
+    } catch (err) {
+      log(err);
+      // Exceptions are caught and displayed in the test UI
+      test.emit(&#x27;error&#x27;, err);
+    }
+
+    return test;
+  }
+
+  /**
+  * Get the number of operations per second for this test.
+  *
+  * @param normalize if true, iteration loop overhead taken into account.
+  *                  Note that normalized tests may return Infinity if the
+  *                  test time is of the same order as the calibration time.
+  */
+  function getHz(normalize) {
+    var p = test.period;
+
+    // Adjust period based on the calibration test time
+    if (normalize) {
+      var cal = test.isLoop ? Test.LOOP_CAL : Test.NOLOOP_CAL;
+      if (!cal.period) {
+        // Run calibration if needed
+        cal.MIN_TIME = .3;
+        cal.bestOf(3);
+      }
+
+      // Subtract off calibration time.  In theory this should never be
+      // negative, but in practice the calibration times are affected by a
+      // variety of factors so just clip to zero and let users test for
+      // getHz() == Infinity
+      p = Math.max(0, p - cal.period);
+    }
+
+    return sig(1/p, 4);
+  }
+
+  // Set properties that are specific to this instance
+  extend(test, {
+    // Test name
+    name: name, ...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.dot.jslitmus.clearAll" id="apidoc.element.dot.jslitmus.clearAll">
+        function <span class="apidocSignatureSpan">dot.jslitmus.</span>clearAll
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function clearAll() {
+	tests = [];
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+				for(var i=0; i&#x3c;3; i++) { snippet += snippet; }
+				console.log(&#x22;*** Large template length: &#x22; + snippet.length);
+				break;
+			default:
+				return;
+			}
+
+			jslitmus.<span class="apidocCodeKeywordSpan">clearAll</span>();
+			testsetup(snippet);
+			jslitmus.runAll();
+		});
+		// Run it!
+		jslitmus.runAll();
+	}
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.dot.jslitmus.emit" id="apidoc.element.dot.jslitmus.emit">
+        function <span class="apidocSignatureSpan">dot.jslitmus.</span>emit
+        <span class="apidocSignatureSpan">(e)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">emit = function (e) {
+  var args = Array.prototype.slice.call(arguments, 1);
+  forEach([].concat(listeners[e], listeners[&#x27;*&#x27;]), function(l) {
+    ee._emitting = e;
+    if (l) l.apply(ee, args);
+  });
+  delete ee._emitting;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+/**
+ * Reset test state
+ */
+function reset() {
+  delete test.count;
+  delete test.time;
+  delete test.running;
+  test.<span class="apidocCodeKeywordSpan">emit</span>(&#x27;reset&#x27;, test);
+  return test;
+}
+
+function clone() {
+  var test = extend(new Test(name, f), test);
+  return test.reset();
+}
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.dot.jslitmus.getGoogleChart" id="apidoc.element.dot.jslitmus.getGoogleChart">
+        function <span class="apidocSignatureSpan">dot.jslitmus.</span>getGoogleChart
+        <span class="apidocSignatureSpan">(normalize)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function getGoogleChart(normalize) {
+  var chart_title = [
+    &#x27;Operations/second on &#x27; + platform.name,
+    &#x27;(&#x27; + platform.version + &#x27; / &#x27; + platform.os + &#x27;)&#x27;
+  ];
+
+  var n = tests.length, markers = [], data = [];
+  var d, min = 0, max = -1e10;
+
+  // Gather test data
+
+  var markers = map(tests, function(test, i) {
+    if (test.count) {
+      var hz = test.getHz();
+      var v = hz != Infinity ? hz : 0;
+      data.push(v);
+      var label = test.name + &#x27;(&#x27; + humanize(hz)+ &#x27;)&#x27;;
+      var marker = &#x27;t&#x27; + escape2(label) + &#x27;,000000,0,&#x27; + i + &#x27;,10&#x27;;
+      max = Math.max(v, max);
+
+      return marker;
+    }
+  });
+
+  if (markers.length &#x3c;= 0) return null;
+
+  // Build labels
+  var labels = [humanize(min), humanize(max)];
+
+  var w = 250, bw = 15;
+  var bs = 5;
+  var h = markers.length*(bw + bs) + 30 + chart_title.length*20;
+
+  var params = {
+    chtt: escape(chart_title.join(&#x27;|&#x27;)),
+    chts: &#x27;000000,10&#x27;,
+    cht: &#x27;bhg&#x27;,                     // chart type
+    chd: &#x27;t:&#x27; + data.join(&#x27;,&#x27;),     // data set
+    chds: min + &#x27;,&#x27; + max,          // max/min of data
+    chxt: &#x27;x&#x27;,                      // label axes
+    chxl: &#x27;0:|&#x27; + labels.join(&#x27;|&#x27;), // labels
+    chsp: &#x27;0,1&#x27;,
+    chm: markers.join(&#x27;|&#x27;),         // test names
+    chbh: [bw, 0, bs].join(&#x27;,&#x27;),    // bar widths
+    // chf: &#x27;bg,lg,0,eeeeee,0,eeeeee,.5,ffffff,1&#x27;, // gradient
+    chs: w + &#x27;x&#x27; + h
+  };
+
+  var url = &#x27;http://chart.apis.google.com/chart?&#x27; + join(params);
+
+  return url;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+		jslitmus.on(&#x27;complete&#x27;, function(test) {
+		// Output test results
+			currentSet.innerHTML += test + &#x27;&#x3c;br/&#x3e;&#x27;;
+		});
+		// &#x27;all_complete&#x27; fires when all tests have finished.
+		jslitmus.on(&#x27;all_complete&#x27;, function() {
+			// Get the results image URL
+			var url = jslitmus.<span class="apidocCodeKeywordSpan">getGoogleChart</span>();
+			if (currentSet.id === &#x27;small&#x27;) {
+				currentSet.innerHTML += resultTmpl({size: snippet.length, url: url});
+				setTimeout(function() {
+					jslitmus.clearAll();
+					currentSet = document.getElementById(&#x27;large&#x27;);
+					for(var i=0; i&#x3c;8; i++) { snippet += snippet; }
+					testsetup(snippet);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.dot.jslitmus.on" id="apidoc.element.dot.jslitmus.on">
+        function <span class="apidocSignatureSpan">dot.jslitmus.</span>on
+        <span class="apidocSignatureSpan">(e, f)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">on = function (e, f) {
+  if (!listeners[e]) listeners[e] = [];
+  listeners[e].push(f);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+		doU = require(&#x27;./templating/doU.js&#x27;);
+		doT = require(&#x27;./templating/doT.js&#x27;);
+		var passOne = 0;
+		console.log(&#x22;*** Compilation speed test&#x22;);
+		console.log(&#x22;*** Small template length: &#x22; + snippet.length);
+		testsetup(snippet);
+		// Log the test results
+		jslitmus.<span class="apidocCodeKeywordSpan">on</span>(&#x27;complete&#x27;, function(test) {
+			//console.log(util.inspect(process.memoryUsage()));
+			console.log(test.toString());
+		});
+		// &#x27;all_complete&#x27; fires when all tests have finished.
+		jslitmus.on(&#x27;all_complete&#x27;, function() {
+			switch (passOne) {
+			case 0:
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.dot.jslitmus.removeAllListeners" id="apidoc.element.dot.jslitmus.removeAllListeners">
+        function <span class="apidocSignatureSpan">dot.jslitmus.</span>removeAllListeners
+        <span class="apidocSignatureSpan">(e)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">removeAllListeners = function (e) {
+  listeners[e] = [];
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.dot.jslitmus.removeListener" id="apidoc.element.dot.jslitmus.removeListener">
+        function <span class="apidocSignatureSpan">dot.jslitmus.</span>removeListener
+        <span class="apidocSignatureSpan">(e, f)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">removeListener = function (e, f) {
+  listeners[e] = filter(listeners[e], function(l) {
+    return l != f;
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.dot.jslitmus.runAll" id="apidoc.element.dot.jslitmus.runAll">
+        function <span class="apidocSignatureSpan">dot.jslitmus.</span>runAll
+        <span class="apidocSignatureSpan">(e)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function runAll(e) {
+  forEach(tests, _queueTest);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+				break;
+			default:
+				return;
+			}
+
+			jslitmus.clearAll();
+			testsetup(snippet);
+			jslitmus.<span class="apidocCodeKeywordSpan">runAll</span>();
+		});
+		// Run it!
+		jslitmus.runAll();
+	}
+
+	function runTestsInBrowser() {
+		jslitmus = window.jslitmus;doU = window.doU;doT = window.doT;
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.dot.jslitmus.test" id="apidoc.element.dot.jslitmus.test">
+        function <span class="apidocSignatureSpan">dot.jslitmus.</span>test
+        <span class="apidocSignatureSpan">(name, f)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function test(name, f) {
+  // Create the Test object
+  var test = new Test(name, f);
+  tests.push(test);
+
+  // Run the next test if this one finished
+  test.on(&#x27;*&#x27;, function() {
+    // Forward test events to jslitmus listeners
+    var args = Array.prototype.slice.call(arguments);
+    args.unshift(test._emitting);
+    jslitmus.emit.apply(jslitmus, args);
+
+    // Auto-run the next test
+    if (test._emitting == &#x27;complete&#x27;) {
+      currentTest = null;
+      _nextTest();
+    }
+  });
+
+  jslitmus.emit(&#x27;added&#x27;, test);
+
+  return test;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+	var defFolder = this.__path,
+		sources = fs.readdirSync(defFolder),
+		k, l, name;
+
+	for( k = 0, l = sources.length; k &#x3c; l; k++) {
+		name = sources[k];
+		if (/\.def(\.dot|\.jst)?$/.<span class="apidocCodeKeywordSpan">test</span>(name)) {
+			if (doT.log) console.log(&#x22;Loaded def &#x22; + name);
+			this.__includes[name.substring(0, name.indexOf(&#x27;.&#x27;))] = readdata(defFolder + name);
+		}
+	}
+
+	for( k = 0, l = sources.length; k &#x3c; l; k++) {
+		name = sources[k];
+...</pre></li>
+    </ul>
+
+
+
+
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
